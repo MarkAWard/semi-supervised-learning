@@ -8,6 +8,7 @@
 \usepackage{amssymb}
 
 \DeclareMathOperator{\E}{\mathbb{E}}
+\DeclareMathOperator*{\argmin}{arg\,min}
 
 \makeatletter
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Textclass specific LaTeX commands.
@@ -339,9 +340,23 @@ $|\hat{p}(x) - \hat{p}(z)|$,$|\hat{p}(z) - \hat{p}(z')|$, $|\hat{p}(z) - p(z)|$ 
 \end{frame}
 \begin{frame}
    \frametitle{\insertsubsection}
-   \begin{equation}
-     f(_{m,n,x})
-   \end{equation}
+   \begin{itemize}
+   \item Semi-supervised learner: 
+   \begin{align}
+     \hat{f}_{m,n,x}(\cdot) &= \argmin_{f^{'} \in \Gamma} \sum_{i=1}^{n} (Y_i - f'(X_i) )^2 \mathbf{1}_{x \overset{p}\longleftrightarrow X_i} + \text{pen}(f') \\
+     \hat{f}_{m,n}(x) &\equiv  \hat{f}_{m,n,x}(\cdot) \notag
+   \end{align}
+   \item $\Gamma$: collection of piecewise polynomials, defined over a partitioning of the domain $\mathcal{X} = [0,1]^d$
+   \item pen($f'$) $\propto$ $log(\sum_{i=1}^{n}\mathbf{1}_{x \overset{p}\longleftrightarrow X_i}) \cdot \text{\#} f'$, where \#$f'$ is the number cells over which $f'$ is defined
+   \end{itemize}
+\end{frame}
+
+\subsection{Error Bounds}
+\begin{frame}
+   \frametitle{\insertsubsection:  Overview}
+   \begin{itemize}
+   \item bounds
+   \end{itemize}
 \end{frame}
    
 \end{document}
