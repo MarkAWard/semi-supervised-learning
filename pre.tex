@@ -65,9 +65,10 @@
 
 \usepackage{babel}
 
-\title{Unlabeled data: Now it helps, now it doesn't}
+\title{Unlabeled Data: Now It Helps, Now It Doesn't}
+\subtitle{A. Singh, R. D. Nowak, and X. Zhu. In NIPS, 2008. 1}
 \author{Mark Andrew Ward and Max Kuang}
-\institute{Courant Institute}
+\institute{Courant Institute, NYU}
 \begin{document}
 
 
@@ -85,7 +86,7 @@
 \begin{frame}
 \titlepage
 \end{frame}
-\AtBeginSubsection[]{
+\AtBeginSection[]{
 
   \frame<beamer>{ 
 
@@ -107,33 +108,21 @@
 \subsection{Conflicting Views in Semi-supervised Learning}
 \begin{frame}
 \frametitle{\insertsubsection}
-\begin{block}{Semi-supervised Learning}
- Given $n$ iid labeled samples $\{(x_i, y_i)\}_{i = 1,\dots, n}$ and $m$ iid unlabeled samples $\{x_i\}_{i = 1,\dots, m}$,
- semi-supervised learning attempts to make use of this combined information to surpass the learning performance
- that could be obtained by discarding the unlabeled data and doing supervised learning.
-\end{block}
 
 \begin{itemize}
- \item Not always helpful: Only when there exist a \textbf{link} between the \textbf{marginal data distribution $P(x)$} and the \textbf{target function to be learned $y = f(x)$}.
+\item  Given $n$ iid labeled sample $\{(x_i, y_i)\}_{i = 1,\dots, n}$ and $m$ iid unlabeled sample $\{x'_i\}_{i = 1,\dots, m}$,
+can we do better than supervised learning from merely $n$ labeled points $\{(x_i, y_i)\}_{i = 1,\dots, n}$.
+ \item Not always better: Only when there exists a \textbf{link} between the \textbf{marginal data distribution $P(x)$} and the \textbf{target function to be learned $y = f(x)$}.
 \item \textbf{Links}: \textbf{cluster assumption} and \textbf{manifold assumption}.
-\end{itemize}
-
-
-\end{frame}
-
-
-\begin{frame}
- \frametitle{\insertsubsection}
-\begin{itemize}
  \item Does unlabeled data help in error convergence rate under different assumptions?
+\end{itemize}
 \begin{center}
 \begin{tabular}{l||ll}
  & SSL helps & SSL does not help\\ \hline\hline
-Cluster assuption & Castelli, Cover & Rigollet\\
-Manifold assuption & Lafferey and Wasserman & Niyogi
+Cluster assumption & Castelli and Cover\cite{Cover1995,Cover1996} & Rigollet\cite{Rigollet2007}\\
+Manifold assumption & Lafferey and Wasserman\cite{Lafferty2008} & Niyogi\cite{Niyogi2008}
 \end{tabular}
 \end{center}
-\end{itemize}
 \end{frame}
 \begin{frame}
 \frametitle{\insertsubsection}
@@ -206,14 +195,13 @@ $\Uparrow$(definition)\\
 \textit{Supervised learners with perfect knowledge of the decision sets $\mathcal{D}$}
  \end{center}
 \end{itemize}
-
 \end{frame}
 \subsection{Learning the Decision Sets}
 \begin{frame}
  \frametitle{\insertsubsection: \\SSL Learner $\approx$ Clairvoyant Learner}
 \begin{itemize}
  \item Decision sets are learnable using unlabeled data: marginal density $p$ is smooth within each decision set but exhibits jumps at the decision set boundaries.
-\item Main learning procedures:
+\item Main learning procedure:
 \begin{enumerate}
  \item Marginal Density Estimation: From unlabeled sample $\{x_i\}_{i = 1,\dots, m}$ to density estimator $\hat{p}(x)$
 \item Decision Set Estimation: From  $\hat{p}(x)$ to decision set estimator $\hat{\mathcal{D}}$
@@ -223,7 +211,7 @@ $\Uparrow$(definition)\\
 \begin{frame}
  \frametitle{\insertsubsection: Marginal Density Estimation}
 \begin{itemize}
- \item Consider a uniform grid over the feature space $\mathcal{X} = [0,1]^d$ with spacing $2h_m$, where $h_m = \kappa_0 ((\log m)^2/m)^{1/d}$.
+ \item Sup-norm kernel density estimator\cite{Koro1999}: Consider a uniform grid over the feature space $\mathcal{X} = [0,1]^d$ with spacing $2h_m$, where $h_m = \kappa_0 ((\log m)^2/m)^{1/d}$.
 \item Make a histogram-style density estimation on the grid using kernel density estimation: 
 \begin{equation}
  \hat{p}(x) = \frac{1}{mh_m^d}\sum_{i = 1}^m G(H^{-1}_m(X_i - \bar{x}))
@@ -343,7 +331,47 @@ $|\hat{p}(x) - \hat{p}(z)|$,$|\hat{p}(z) - \hat{p}(z')|$, $|\hat{p}(z) - p(z)|$ 
      f(_{m,n,x})
    \end{equation}
 \end{frame}
-   
+\begin{frame}[allowframebreaks]
+  \frametitle<presentation>{Further Reading}    
+  \begin{thebibliography}{10}    
+\tiny
+  \beamertemplatearticlebibitems
+  \bibitem{Cover1995}
+Castelli, V., Cover, T.M.
+\newblock{\em On the exponential value of labeled samples}
+\newblock Pattern Recognition Letters 16(1) (1995) 105-111
+
+  \beamertemplatearticlebibitems
+  \bibitem{Cover1996}
+Castelli, V., Cover, T.M.
+\newblock {\em The relative value of labeled and unlabeled samples in pattern recognition}
+\newblock IEEE Transactions on Information Theory 42(6) (1996) 2102-2117
+  \beamertemplatearticlebibitems
+  \bibitem{Lafferty2008}
+Lafferty, J., Wasserman, L.
+\newblock {\em Statistical analysis of semi-supervised regression}
+\newblock Advances in Neural Information Processing Systems 20, NIPS. (2008) 801-808
+  \beamertemplatearticlebibitems
+  \bibitem{Niyogi2008}
+Niyogi, P.
+\newblock {\em Manifold regularization and semi-supervised learning: Some theoretical analyses}
+\newblock Technical Report TR-2008-01, Computer Science Department, University of Chicago.
+
+  \beamertemplatearticlebibitems
+  \bibitem{Rigollet2007}
+Rigollet, P.
+\newblock {\em Generalization error bounds in semi-supervised classification under the cluster assumption}
+\newblock Journal of Machine Learning Research 8 (2007) 1369-1392
+
+  \beamertemplatearticlebibitems
+  \bibitem{Koro1999}
+Korostelev, A., Nussbaum, M. 
+\newblock {\em The asymptotic minimax constant for sup-norm loss in nonparametric
+density estimation} 
+\newblock Bernoulli 5(6) (1999) 1099-1118
+
+  \end{thebibliography}
+\end{frame}   
 \end{document}
 
 
