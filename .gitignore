@@ -6,3 +6,5 @@ pre.pdf
 pre.snm
 pre.synctex.gz
 pre.toc
+*~
+.gitignore
