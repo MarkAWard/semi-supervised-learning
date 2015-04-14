@@ -292,7 +292,7 @@ $|\hat{p}(x) - \hat{p}(z)|$,$|\hat{p}(z) - \hat{p}(z')|$, $|\hat{p}(z) - p(z)|$ 
  \frametitle{\insertsubsection: Proof and Remarks}
  \begin{itemize}
   \item To prove the theorem, one only need to use the fact that $\hat{\mathcal{D}}$ is very close to $\mathcal{D}$
-  in a probability sense. Using condition probability, $E\mathcal{E}(\hat{f}_{m,n})$ is close to $E\mathcal{E}(\hat{f}_{D,n})$.
+  in a probability sense. Using condition probability, $\mathbb{E}\mathcal{E}(\hat{f}_{m,n})$ is close to $\mathbb{E}\mathcal{E}(\hat{f}_{D,n})$.
   \item Conditions to make SSL Learner be close to clairvoyant learner are:
   \begin{enumerate}
    \item The margin $\gamma$ is large enough: $|\gamma| > C_0(m/(\log m)^2)^{-1/d} $
@@ -300,7 +300,7 @@ $|\hat{p}(x) - \hat{p}(z)|$,$|\hat{p}(z) - \hat{p}(z')|$, $|\hat{p}(z) - p(z)|$ 
   \end{enumerate}
   \item If the clairvoyant learner outperforms general SL learners: 
   \begin{equation}
-   \inf_{f_n}\sup_{P_{XY}}E[\mathcal{E}(f_n)] \geq \varepsilon_1(n) > \varepsilon_2(n)
+   \inf_{f_n}\sup_{P_{XY}}\mathbb{E}[\mathcal{E}(f_n)] \geq \varepsilon_1(n) > \varepsilon_2(n)
   \end{equation}
   We have that there exists a SSL Learner that outperforms general SL learners.
  \end{itemize}
