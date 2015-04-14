@@ -344,14 +344,25 @@ $|\hat{p}(x) - \hat{p}(z)|$,$|\hat{p}(z) - \hat{p}(z')|$, $|\hat{p}(z) - p(z)|$ 
    \frametitle{\insertsubsection:  Overview}
    \begin{itemize}
    \item For piecewise Holder-$\alpha$ smooth functions, finite sample error bound of max$(n^{-2\alpha / (2\alpha+d)}, n^{-1/d})$
-   \item Assuming $m \gg n^{2d}$ so that  $\sup_{P_{XY}}\E[\mathcal{E}(\hat{f}_{m,n})]$ scales as $\varepsilon_2(n)$
+   \item Assume $m \gg n^{2d}$ so that  $\sup_{P_{XY}}\E[\mathcal{E}(\hat{f}_{m,n})]$ scales as $\varepsilon_2(n)$
+   \item Assume $d \geq 2\alpha / (2\alpha -1)$, since when $d < 2\alpha / (2\alpha -1)$ learning decision sets does not simplify supervised learning task
+   \end{itemize}
+   \begin{figure}[h]
+      \centering
+      \includegraphics[width = 4.0in]{8.png}
+     \end{figure}
+ \end{frame}
+\begin{frame}
+   \frametitle{\insertsubsection:  Overview}
     \begin{figure}[h]
       \centering
       \includegraphics[width = 4.0in]{8.png}
      \end{figure}
-   \end{itemize}
+     \begin{itemize}
+     \item $\gamma_0$ fixed constant, corresponds to considering a fixed collection of distributions whose complexity does not change with the amount of data
+     \item Constants $C_0$ and $c_0$ characterize margin and only depend on fixed parameters of the class $P_{XY}(\gamma)$
+     \end{itemize}
 \end{frame}
-
 
 \begin{frame}[allowframebreaks]
   \frametitle<presentation>{Further Reading}    
