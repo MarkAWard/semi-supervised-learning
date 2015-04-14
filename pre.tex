@@ -106,14 +106,14 @@
 \begin{frame}
 \frametitle{\insertsubsection}
 \begin{block}{Semi-supervised Learning}
- Given $n$ iid labeled sample $\{(x_i, y_i)\}_{i = 1,\dots, n}$ and $m$ iid unlabeled sample $\{x_i\}_{i = 1,\dots, m}$,
+ Given $n$ iid labeled samples $\{(x_i, y_i)\}_{i = 1,\dots, n}$ and $m$ iid unlabeled samples $\{x_i\}_{i = 1,\dots, m}$,
  semi-supervised learning attempts to make use of this combined information to surpass the learning performance
  that could be obtained by discarding the unlabeled data and doing supervised learning.
 \end{block}
 
 \begin{itemize}
- \item Not always helpful: Only when there exist a \textbf{link} between \textbf{marginal data distribution $P(x)$} and \textbf{target function to be learned $y = f(x)$}.
-\item \textbf{Links}: \textbf{cluste assumption} and \textbf{manifold assumption}.
+ \item Not always helpful: Only when there exist a \textbf{link} between the \textbf{marginal data distribution $P(x)$} and the \textbf{target function to be learned $y = f(x)$}.
+\item \textbf{Links}: \textbf{cluster assumption} and \textbf{manifold assumption}.
 \end{itemize}
 
 
@@ -137,7 +137,7 @@ Manifold assuption & Lafferey and Wasserman & Niyogi
 \frametitle{\insertsubsection}
 \begin{itemize}
 \item
-This work focuses on learning under the \textbf{cluster assumption} and give \textbf{finite sample bounds} to identify situations in which unlabeled data help to improve learning.
+This work focuses on learning under the \textbf{cluster assumption} and provides \textbf{finite sample bounds} to identify situations in which unlabeled data will help to improve learning.
 \end{itemize}
 \begin{figure}[h]
 \centering
@@ -200,7 +200,7 @@ for all general learners.
   \large    SSL > SL\\
 $\Uparrow$\\
 SSL Learner $\approx$ Clairvoyant Learner > General SL Learner
-$\Uparrow$(defination)\\
+$\Uparrow$(definition)\\
 \textit{Supervised learners with perfect knowledge of the decision sets $\mathcal{D}$}
  \end{center}
 \end{itemize}
@@ -261,7 +261,7 @@ we have $|\hat{p}(z_i) - \hat{p}(z_j)| \leq (\log m)^{-1/3}$ for all $z_i, z_j$ 
   \item Uniform bound for density estimation: Given certain assumptions on Kernels, we have
   with probability at least $1 - \frac{1}{m}$:
   \begin{equation}
-   \sup_{x\in supp(p)\backslash\mathcal{R_B}}|p(x) - \hat{p}(x)| < |h_m^{\min(1,\alpha_1)}+ \sqrt{\frac{\log m}{m _m^d}}|
+   \sup_{x\in supp(p)\backslash\mathcal{R_B}}|p(x) - \hat{p}(x)| < \bigg|h_m^{\min(1,\alpha_1)}+ \sqrt{\frac{\log m}{m _m^d}}\bigg|
   \end{equation}
 
   \item Conectivity: For all $x\in supp(p)\backslash\mathcal{R_B}$, with probability $1-\frac{1}{m}$, there exsits an unlabeled sample $X_i$ that
