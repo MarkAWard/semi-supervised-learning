@@ -7,6 +7,8 @@
 \usepackage{amsmath}
 \usepackage{amssymb}
 
+\DeclareMathOperator{\E}{\mathbb{E}}
+
 \makeatletter
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Textclass specific LaTeX commands.
  % this default might be overridden by plain title style
@@ -292,7 +294,7 @@ $|\hat{p}(x) - \hat{p}(z)|$,$|\hat{p}(z) - \hat{p}(z')|$, $|\hat{p}(z) - p(z)|$ 
  \frametitle{\insertsubsection: Proof and Remarks}
  \begin{itemize}
   \item To prove the theorem, one only need to use the fact that $\hat{\mathcal{D}}$ is very close to $\mathcal{D}$
-  in a probability sense. Using condition probability, $E\mathcal{E}(\hat{f}_{m,n})$ is close to $E\mathcal{E}(\hat{f}_{D,n})$.
+  in a probability sense. Using condition probability, $\E \mathcal{E}(\hat{f}_{m,n})$ is close to $\E \mathcal{E}(\hat{f}_{D,n})$.
   \item Conditions to make SSL Learner be close to clairvoyant learner are:
   \begin{enumerate}
    \item The margin $\gamma$ is large enough: $|\gamma| > C_0(m/(\log m)^2)^{-1/d} $
@@ -300,7 +302,7 @@ $|\hat{p}(x) - \hat{p}(z)|$,$|\hat{p}(z) - \hat{p}(z')|$, $|\hat{p}(z) - p(z)|$ 
   \end{enumerate}
   \item If the clairvoyant learner outperforms general SL learners: 
   \begin{equation}
-   \inf_{f_n}\sup_{P_{XY}}E[\mathcal{E}(f_n)] \geq \varepsilon_1(n) > \varepsilon_2(n)
+   \inf_{f_n}\sup_{P_{XY}}\E[\mathcal{E}(f_n)] \geq \varepsilon_1(n) > \varepsilon_2(n)
   \end{equation}
   We have that there exists a SSL Learner that outperforms general SL learners.
  \end{itemize}
@@ -308,7 +310,40 @@ $|\hat{p}(x) - \hat{p}(z)|$,$|\hat{p}(z) - \hat{p}(z')|$, $|\hat{p}(z) - p(z)|$ 
 \end{frame}
 
 \section{Density-adaptive Regression}
+\subsection{Optimal Decision Rule}
 \begin{frame}
- 
+   \frametitle{\insertsubsection: Definition}
+  \begin{itemize}
+	\item $Y$ continuous and bounded random variable
+	\item $f^*(x)=\E[Y|X=X]$, under the squared error loss
+	\item Let $\E_k$ denote expectation with respect to $p_k(Y|X=x)$ and define $f_k(x) = \E_k[Y|X=x]$ then 
+	\begin{equation}
+	f^* (x) = \sum_{k=1}^{K} \frac{\sum_{j=1}^{K} a_k p_k(x)} {a_j p_j(x)} f_k(x)
+	\end{equation}
+	\item Assumptions: 
+	\begin{enumerate}
+	\item $f_k$ is uniformly bounded, $|f_k| \leq M$
+	\item $f_k$ is Holder-$\alpha$ smooth on $C_k$
+	\end{enumerate}
+   \end{itemize} 
 \end{frame}
+
+\subsection{SSL Algorithm}
+\begin{frame}
+   \frametitle{\insertsubsection}
+   \begin{itemize}
+     \item Since $f^*$ is smooth on each $D \in \mathcal{D}$, perform local polynomial fits within each empirical decision set, using labeled training data that are p-connected
+     \item Use spatially adaptive estimator, optimal for piecewise-smooth functions
+     \item Guarantee SSL still achieves an error bound that is no worse than lower bound for SL when components are indiscernible even with unlabeled data.
+   \end{itemize}
+\end{frame}
+\begin{frame}
+   \frametitle{\insertsubsection}
+   \begin{equation}
+     f(_{m,n,x})
+   \end{equation}
+\end{frame}
+   
 \end{document}
+
+
