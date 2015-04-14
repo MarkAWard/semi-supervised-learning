@@ -334,7 +334,7 @@ $|\hat{p}(x) - \hat{p}(z)|$,$|\hat{p}(z) - \hat{p}(z')|$, $|\hat{p}(z) - p(z)|$ 
      \hat{f}_{m,n,x}(\cdot) &= \argmin_{f^{'} \in \Gamma} \sum_{i=1}^{n} (Y_i - f'(X_i) )^2 \mathbf{1}_{x \overset{p}\longleftrightarrow X_i} + \text{pen}(f') \\
      \hat{f}_{m,n}(x) &\equiv  \hat{f}_{m,n,x}(\cdot) \notag
    \end{align}
-   \item $\Gamma$: collection of piecewise polynomials, defined over a partitioning of the domain $\mathcal{X} = [0,1]^d$
+   \item $\Gamma$: collection of piecewise polynomials, defined over a recursive dyadic partitioning of the domain $\mathcal{X} = [0,1]^d$
    \item pen($f'$) $\propto$ $log(\sum_{i=1}^{n}\mathbf{1}_{x \overset{p}\longleftrightarrow X_i}) \cdot \text{\#} f'$, where \#$f'$ is the number cells over which $f'$ is defined
    \end{itemize}
 \end{frame}
@@ -362,6 +362,21 @@ $|\hat{p}(x) - \hat{p}(z)|$,$|\hat{p}(z) - \hat{p}(z')|$, $|\hat{p}(z) - p(z)|$ 
      \item $\gamma_0$ fixed constant, corresponds to considering a fixed collection of distributions whose complexity does not change with the amount of data
      \item Constants $C_0$ and $c_0$ characterize margin and only depend on fixed parameters of the class $P_{XY}(\gamma)$
      \end{itemize}
+\end{frame}
+\begin{frame}
+\begin{itemize}
+\item Based on theorem from Castro 2005. Let $n_D = \frac{1}{n} \sum_{i=1}^{n} \mathbf{1}_{x \in D}$ 
+    \begin{figure}[h]
+      \centering
+      \includegraphics[width = 2.8in]{10.png}
+     \end{figure}
+ \item Decompose the error of the estimator in to three different cases
+\end{itemize}
+   \frametitle{\insertsubsection:  Proof}
+    \begin{figure}[h]
+      \centering
+      \includegraphics[width = 4.0in]{9.png}
+     \end{figure}
 \end{frame}
 
 \begin{frame}[allowframebreaks]
@@ -402,6 +417,12 @@ Korostelev, A., Nussbaum, M.
 \newblock {\em The asymptotic minimax constant for sup-norm loss in nonparametric
 density estimation} 
 \newblock Bernoulli 5(6) (1999) 1099-1118
+
+  \beamertemplatearticlebibitems
+  \bibitem{Castro 2005}
+Castro, R., Willett, R., Nowak, R. 
+\newblock {\em Faster rates in regression via active learning} 
+\newblock Advances in Neural Information Processing Systems, NIPS. (2005) 179-186
 
   \end{thebibliography}
 \end{frame}   
